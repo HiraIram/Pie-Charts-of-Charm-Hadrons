@@ -1,0 +1,32 @@
+import matplotlib.pyplot as plt
+
+# Charm particles data (names, quark composition, and lifetimes)
+charm_particles = [
+    {"name": "D+", "composition": {"charm_quark": 1, "anti down_quark": 1}, "lifetime": 1.040e-12},
+    {"name": "D-", "composition": {"anti charm_quark": 1, "down_quark": 1}, "lifetime": 1.040e-12},
+    {"name": "Lambda_c+", "composition": {"charm_quark": 1, "up_quark": 1, "down_quark": 1}, "lifetime": 0.204e-12},
+    {"name": "DO", "composition": {"charm_quark": 1, "anti up_quark": 1}, "lifetime": 0.408e-12},
+    {"name": "D_s-", "composition": {"anti charm_quark": 1, "strange_quark": 1}, "lifetime": 0.506e-12},
+    {"name": "Omega_cO", "composition": {"strange_quark": 1, "strange_quark": 1, "charm_quark": 1}, "lifetime": 0.268e-12},
+    {"name": "D_s+", "composition": {"charm_quark": 1, "anti strange_quark": 1}, "lifetime": 0.507e-12},
+    {"name": "Ξ_c+", "composition": {"charm_quark": 1, "up_quark": 1, "strange_quark": 1}, "lifetime": 0.457e-12},
+    {"name": "B_c+", "composition": {"charm_quark": 1, "bottom_quark": 1}, "lifetime": 0.980e-12},
+    {"name": "Ξ_cO", "composition": {"charm_quark": 1, "strange_quark": 1, "down_quark": 1}, "lifetime": 0.155e-12},
+    # Add more charm particles here and lifetime is in seconds
+]
+
+# Create pie charts for each charm particle
+for particle in charm_particles:
+    composition = particle["composition"]
+    lifetime = particle["lifetime"]
+
+    # Create a pie chart
+    plt.figure(figsize=(3, 3))
+    plt.pie(composition.values(), labels=composition.keys(), autopct='%1.1f%%', startangle=45)
+    
+    # Set the title and lifetime information
+    plt.title(f'{particle["name"]} Quark Composition')
+    plt.text(0, -1.3, f"Lifetime: {lifetime} ns", ha='center')
+    
+    # Display the pie chart
+    plt.show()
